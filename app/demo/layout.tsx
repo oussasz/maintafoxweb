@@ -26,7 +26,18 @@ export const metadata: Metadata = {
       'Schedule a personalized demo to see how Maintafox CMMS can transform your maintenance operations.',
   },
   alternates: {
-    canonical: '/demo',
+    canonical: 'https://www.maintafox.systems/demo',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

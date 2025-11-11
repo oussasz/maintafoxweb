@@ -11,6 +11,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Redirect old HTML files to new Next.js routes
+      {
+        source: '/demo.html',
+        destination: '/demo',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
       // Redirect old hash URLs to dedicated pages
       {
         source: '/:path*#pricing',
