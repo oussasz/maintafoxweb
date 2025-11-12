@@ -27,20 +27,20 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur border-b' : 'bg-white/80 backdrop-blur'
       }`}
     >
-      <nav className="container-12 flex items-center justify-between py-3 md:py-4">
-        <Link href="/" className="flex items-center gap-2">
+  <nav className="container-12 flex items-center justify-between py-2 md:py-4">
+        <Link href="/" className="flex items-center gap-1 sm:gap-2">
           <Image
             src={logo}
             alt="Maintafox"
-            width={24}
-            height={24}
-            className="rounded-sm md:w-7 md:h-7"
+            width={20}
+            height={20}
+            className="rounded-sm w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
           />
-          <span className="text-sm md:text-base font-semibold text-brand">Maintafox</span>
+          <span className="text-xs sm:text-sm md:text-base font-semibold text-brand">Maintafox</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 text-sm">
+  <div className="hidden md:flex items-center gap-5 text-sm">
           <Link href="/features" className="hover:text-brand">
             {t.nav.features}
           </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-slate-100"
+                className="flex items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-slate-100 text-sm"
               >
                 <div className="h-8 w-8 rounded-full bg-brand text-white flex items-center justify-center font-semibold">
                   {session.user.name?.charAt(0).toUpperCase()}
@@ -118,7 +118,7 @@ export default function Navbar() {
         {/* Compact Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 hover:bg-slate-100 rounded-lg"
+          className="md:hidden p-1.5 hover:bg-slate-100 rounded-lg"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
@@ -132,59 +132,59 @@ export default function Navbar() {
       {/* Professional Compact Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t bg-white shadow-lg">
-          <div className="container-12 py-3 space-y-1">
+          <div className="container-12 py-2 space-y-1">
             <Link
               href="/features"
-              className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.features}
             </Link>
             <Link
               href="/about"
-              className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.about}
             </Link>
             <Link
               href="/pricing"
-              className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.pricing}
             </Link>
             <Link
               href="/blog"
-              className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.blog}
             </Link>
             <Link
               href="/contact"
-              className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.contact}
             </Link>
 
             <div className="pt-2 pb-1 border-t mt-2">
-              <div className="px-3 py-2">
+                <div className="px-3 py-1.5">
                 <LanguageSwitcher />
               </div>
             </div>
 
             {session ? (
               <>
-                <div className="px-3 py-2 border-t mt-2">
+                <div className="px-3 py-1.5 border-t mt-2">
                   <p className="text-xs text-slate-500">Signed in as</p>
                   <p className="text-sm font-medium">{session.user.name}</p>
                 </div>
                 {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
                   <Link
                     href="/blog/create"
-                    className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+                    className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Write Post
@@ -193,7 +193,7 @@ export default function Navbar() {
                 {session.user.role === 'ADMIN' && (
                   <Link
                     href="/admin/blog"
-                    className="block px-3 py-2 text-sm hover:bg-slate-50 rounded-md"
+                    className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Admin
@@ -204,7 +204,7 @@ export default function Navbar() {
                     signOut({ callbackUrl: '/' });
                     setMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md"
+                  className="block w-full text-left px-3 py-1.5 text-xs text-red-600 hover:bg-red-50 rounded-md"
                 >
                   Sign Out
                 </button>
@@ -212,7 +212,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/auth/login"
-                className="block mx-3 my-2 px-3 py-2 text-sm bg-brand text-white rounded-md text-center"
+                className="block mx-3 my-2 px-3 py-1.5 text-xs bg-brand text-white rounded-md text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sign In
@@ -221,7 +221,7 @@ export default function Navbar() {
 
             <Link
               href="/demo"
-              className="block mx-3 my-2 px-3 py-2 text-sm bg-brand text-white rounded-md text-center font-medium"
+              className="block mx-3 my-2 px-3 py-1.5 text-xs bg-brand text-white rounded-md text-center font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.demo}

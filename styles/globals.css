@@ -96,3 +96,10 @@ body {
     width: calc(100% / var(--scale));
   }
 }
+
+/* Fine-grained mobile reductions without altering desktop classes */
+@media (max-width: 640px) {
+  .hero-heading { font-size: 1.75rem; line-height: 1.2; }
+  .section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .btn-primary, .btn-outline { padding: 0.5rem 1rem; font-size: 0.75rem; }
+}
