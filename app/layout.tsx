@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
@@ -73,6 +73,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -82,9 +87,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <AuthProvider>
           <LanguageProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            {/* Desktop-identical layout scaled for narrow screens */}
+            <div className="desktop-scale">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
           </LanguageProvider>
         </AuthProvider>
       </body>

@@ -16,6 +16,8 @@
 html,
 body {
   height: 100%;
+  font-size: 16px;
+  overflow-x: hidden; /* avoid horizontal scroll from scaled wrapper rounding */
 }
 
 body {
@@ -42,6 +44,25 @@ body {
   @apply bg-slate-50;
 }
 
+/* Scale whole hero to show the desktop layout on narrow screens while keeping proportions.
+   The technique: compute a scale factor based on the viewport width and the original design width
+   (1200px). Apply transform: scale and set the wrapper width to inverse of the scale so the
+   scaled content fits the viewport exactly. This preserves heights (content isn't stretched).
+*/
+@media (max-width: 900px) {
+  .hero-scale {
+    --design-width: 1200px;
+    /* scale down when viewport is smaller than design width, otherwise use 1 */
+    --scale: calc(min(1, 100vw / var(--design-width)));
+    transform: scale(var(--scale));
+    transform-origin: top center;
+    /* make the scaled block take exactly the viewport width when scaled */
+    width: calc(100% / var(--scale));
+    /* prevent accidental overflow from child transforms */
+    display: block;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -60,5 +81,18 @@ body {
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+/* Global desktop -> mobile scaling wrapper
+   Apply to the entire page to make mobile look exactly like desktop,
+   only smaller. Keeps spacing, fonts, icons, and layout identical. */
+@media (max-width: 1200px) {
+  .desktop-scale {
+    --design-width: 1200px;
+    --scale: calc(min(1, 100vw / var(--design-width)));
+    transform: scale(var(--scale));
+    transform-origin: top center;
+    width: calc(100% / var(--scale));
   }
 }

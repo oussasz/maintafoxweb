@@ -189,15 +189,16 @@ export default function HomePage() {
     <>
       <main>
         {/* Hero */}
-        <section className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-slate-950 via-brand to-slate-900">
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-brand to-slate-900">
           {/* Animated background elements */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-accent blur-[120px]" />
             <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-blue-500 blur-[120px]" />
           </div>
 
-          <div className="container-12 relative flex min-h-[90vh] flex-col justify-center py-20">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="container-12 relative flex flex-col justify-center py-12 lg:py-20">
+            {/* Desktop layout on all sizes; global scaling is applied in layout wrapper */}
+            <div className="grid items-center gap-8 lg:gap-12 grid-cols-[1.2fr_0.8fr]">
               <div className="relative z-10">
                 {/* Floating badge */}
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-xl backdrop-blur-sm ring-1 ring-white/20">
@@ -207,7 +208,7 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <h1 className="mt-8 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <h1 className="mt-6 lg:mt-8 text-4xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
                   {t.hero.title1}
                   <span className="bg-gradient-to-r from-accent to-orange-300 bg-clip-text text-transparent">
                     {' '}
@@ -221,33 +222,33 @@ export default function HomePage() {
                   </span>
                 </h1>
 
-                <p className="mt-6 text-lg leading-relaxed text-slate-300 lg:text-xl">
+                <p className="mt-4 lg:mt-6 text-base lg:text-xl leading-relaxed text-slate-300">
                   {t.hero.subtitle}
                 </p>
 
                 {/* Stat pills */}
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
+                <div className="mt-6 lg:mt-8 flex flex-wrap gap-3 lg:gap-4">
+                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-4 py-3 lg:px-6 lg:py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
                     <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                    <div className="relative text-3xl font-bold text-white">
+                    <div className="relative text-2xl lg:text-3xl font-bold text-white">
                       {t.hero.stat1Value}
                     </div>
                     <div className="relative text-xs uppercase tracking-wider text-slate-300">
                       {t.hero.stat1Label}
                     </div>
                   </div>
-                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
+                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-4 py-3 lg:px-6 lg:py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                    <div className="relative text-3xl font-bold text-white">
+                    <div className="relative text-2xl lg:text-3xl font-bold text-white">
                       {t.hero.stat2Value}
                     </div>
                     <div className="relative text-xs uppercase tracking-wider text-slate-300">
                       {t.hero.stat2Label}
                     </div>
                   </div>
-                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
+                  <div className="group relative overflow-hidden rounded-2xl bg-white/10 px-4 py-3 lg:px-6 lg:py-4 backdrop-blur-sm ring-1 ring-white/20 transition-all hover:bg-white/20">
                     <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                    <div className="relative text-3xl font-bold text-white">
+                    <div className="relative text-2xl lg:text-3xl font-bold text-white">
                       {t.hero.stat3Value}
                     </div>
                     <div className="relative text-xs uppercase tracking-wider text-slate-300">
@@ -257,17 +258,17 @@ export default function HomePage() {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="mt-10 flex flex-wrap gap-4">
+                <div className="mt-8 lg:mt-10 flex flex-wrap gap-3 lg:gap-4">
                   <Link
                     href="/demo"
-                    className="group relative overflow-hidden rounded-xl bg-accent px-8 py-4 font-semibold text-white shadow-xl transition-all hover:shadow-2xl hover:shadow-accent/50"
+                    className="group relative overflow-hidden rounded-xl bg-accent px-6 py-3 lg:px-8 lg:py-4 text-sm lg:text-base font-semibold text-white shadow-xl transition-all hover:shadow-2xl hover:shadow-accent/50"
                   >
                     <span className="relative z-10">{t.hero.ctaPrimary}</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-accent opacity-0 transition-opacity group-hover:opacity-100" />
                   </Link>
                   <Link
                     href="/features"
-                    className="group rounded-xl border-2 border-white/30 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:border-white/50 hover:bg-white/10"
+                    className="group rounded-xl border-2 border-white/30 px-6 py-3 lg:px-8 lg:py-4 text-sm lg:text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/50 hover:bg-white/10"
                   >
                     {t.hero.ctaSecondary}
                   </Link>
@@ -275,10 +276,10 @@ export default function HomePage() {
               </div>
 
               {/* Floating dashboard preview */}
-              <div className="relative scale-125">
+              <div className="relative">
                 {/* Dashboard image with 3D floating effect */}
                 <div
-                  className="relative transform-gpu transition-all duration-500 hover:scale-110"
+                  className="relative transform-gpu transition-all duration-500 hover:scale-105"
                   style={{
                     animation: 'float 6s ease-in-out infinite',
                     filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))',
