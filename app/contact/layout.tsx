@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       'Reach out for CMMS inquiries, technical support, or partnerships. Serving Algeria with local expertise.',
   },
   alternates: {
-    canonical: '/contact',
+    canonical: 'https://www.maintafox.systems/contact',
   },
 };
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://www.maintafox.systems/terms',
   },
   alternates: {
-    canonical: '/terms',
+    canonical: 'https://www.maintafox.systems/terms',
   },
   robots: {
     index: true,

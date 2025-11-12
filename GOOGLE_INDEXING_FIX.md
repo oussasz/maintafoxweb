@@ -1,12 +1,15 @@
 # Fix Google Search Indexing for /demo.html → /demo
 
 ## 🎯 Problem Summary
+
 Google has indexed an old URL `https://www.maintafox.systems/demo.html` that now returns a 404 error. The correct URL is `https://www.maintafox.systems/demo`.
 
 ## ✅ What I've Fixed (Already Done)
 
 ### 1. **301 Permanent Redirect** ✅
+
 Added in `next.config.js`:
+
 ```javascript
 {
   source: '/demo.html',
@@ -16,15 +19,19 @@ Added in `next.config.js`:
 ```
 
 ### 2. **Enhanced Demo Page Metadata** ✅
+
 Updated `app/demo/layout.tsx` with:
+
 - **Canonical URL**: `https://www.maintafox.systems/demo` (absolute URL)
 - **Google-specific robots tags**: Ensures proper indexing
 - **Open Graph & Twitter cards**: Better social sharing
 
 ### 3. **Custom 404 Page** ✅
+
 Created `app/not-found.tsx` with helpful links including direct link to `/demo`
 
 ### 4. **Sitemap Already Includes Demo** ✅
+
 `app/sitemap.ts` includes `/demo` with priority 0.8
 
 ---
@@ -36,23 +43,26 @@ Created `app/not-found.tsx` with helpful links including direct link to `/demo`
 1. **Go to Google Search Console**  
    → https://search.google.com/search-console
 
-2. **Add/Verify Your Property**  
+2. **Add/Verify Your Property**
+
    - If not already added, add `https://www.maintafox.systems`
    - Verify ownership (DNS or HTML file method)
 
-3. **Submit Sitemap**  
+3. **Submit Sitemap**
+
    - Go to: **Sitemaps** (left sidebar)
    - Enter: `https://www.maintafox.systems/sitemap.xml`
    - Click **Submit**
 
-4. **Request Removal of Old URL**  
+4. **Request Removal of Old URL**
+
    - Go to: **Removals** (left sidebar)
    - Click **New Request**
    - Enter: `https://www.maintafox.systems/demo.html`
    - Select: **Temporarily remove URL from search**
    - Submit
 
-5. **Request Indexing of New URL**  
+5. **Request Indexing of New URL**
    - Go to: **URL Inspection** (top search bar)
    - Enter: `https://www.maintafox.systems/demo`
    - Click **Request Indexing**
@@ -79,6 +89,7 @@ curl -I https://www.maintafox.systems/demo
 ```
 
 Or test in browser:
+
 1. Visit: `https://www.maintafox.systems/demo.html`
 2. Should automatically redirect to: `https://www.maintafox.systems/demo`
 
@@ -118,15 +129,17 @@ grep -r "demo.html" app/ components/ public/
 
 After 3-7 days, check:
 
-1. **Coverage Report**  
+1. **Coverage Report**
+
    - Go to: **Coverage** → **Excluded**
    - Look for `demo.html` → Should show "301 Permanently Moved"
 
-2. **URL Inspection**  
+2. **URL Inspection**
+
    - Check: `https://www.maintafox.systems/demo`
    - Status should be: **URL is on Google** ✅
 
-3. **Search Results**  
+3. **Search Results**
    - Google for: `site:maintafox.systems demo`
    - Should show `/demo` (not `/demo.html`)
 
@@ -134,12 +147,12 @@ After 3-7 days, check:
 
 ## 📊 Expected Timeline
 
-| Timeframe | What Happens |
-|-----------|--------------|
+| Timeframe     | What Happens                                     |
+| ------------- | ------------------------------------------------ |
 | **Immediate** | Redirect works (301 sends users to correct page) |
-| **1-3 days** | Google recrawls and notices 301 redirect |
-| **3-7 days** | Google updates index (old URL replaced with new) |
-| **7-14 days** | Search results show new URL consistently |
+| **1-3 days**  | Google recrawls and notices 301 redirect         |
+| **3-7 days**  | Google updates index (old URL replaced with new) |
+| **7-14 days** | Search results show new URL consistently         |
 
 ---
 
@@ -185,6 +198,7 @@ After 3-7 days, check:
 
 2. **301 vs 302 Redirects**  
    We use `permanent: true` (301) not `permanent: false` (302) because:
+
    - 301 = "This page has moved forever" → Google updates index
    - 302 = "This page is temporarily elsewhere" → Google keeps old URL
 
@@ -205,6 +219,6 @@ After 3-7 days, check:
 
 **Problem**: Google shows old URL `/demo.html` (404 error)  
 **Solution**: 301 redirect + updated sitemap + Google Search Console updates  
-**Result**: New URL `/demo` will appear in Google search within 7-14 days  
+**Result**: New URL `/demo` will appear in Google search within 7-14 days
 
 **Status**: ✅ Code fixes complete. Now follow Steps 1-5 above to tell Google! 🚀

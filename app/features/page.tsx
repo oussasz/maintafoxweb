@@ -44,7 +44,7 @@ export const metadata: Metadata = {
       'Complete CMMS platform with asset management, intelligent work orders, preventive maintenance, and real-time analytics.',
   },
   alternates: {
-    canonical: '/features',
+    canonical: 'https://www.maintafox.systems/features',
   },
 };
 

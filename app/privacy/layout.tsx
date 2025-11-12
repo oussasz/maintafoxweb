@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://www.maintafox.systems/privacy',
   },
   alternates: {
-    canonical: '/privacy',
+    canonical: 'https://www.maintafox.systems/privacy',
   },
   robots: {
     index: true,

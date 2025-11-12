@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       'Transparent pricing for Maintafox CMMS. Flexible plans with local support for Algerian industries.',
   },
   alternates: {
-    canonical: '/pricing',
+    canonical: 'https://www.maintafox.systems/pricing',
   },
 };
 

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       'Recognized by NABTAKAR, Maintafox delivers locally supported CMMS to Algerian industries.',
   },
   alternates: {
-    canonical: '/about',
+    canonical: 'https://www.maintafox.systems/about',
   },
 };
 

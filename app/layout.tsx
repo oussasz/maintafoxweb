@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     'asset management',
     'maintenance software',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/logo.svg',
+  },
   openGraph: {
     title: 'Maintafox — CMMS for Proactive Maintenance',
     description:
@@ -51,7 +59,7 @@ export const metadata: Metadata = {
       'Centralize assets, work orders, PMs, inventory, and analytics. Locally installed and supported in Algeria.',
     images: ['/dashboard.png'],
   },
-  alternates: { canonical: '/' },
+  alternates: { canonical: 'https://www.maintafox.systems' },
   robots: {
     index: true,
     follow: true,
