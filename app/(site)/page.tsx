@@ -98,7 +98,7 @@ export default function HomePage() {
               <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
                 {/* Floating badge */}
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-xl backdrop-blur-sm ring-1 ring-white/20">
-                  <Activity className="h-3.5 w-3.5 animate-pulse text-accent" />
+                  <span className="text-base">🇩🇿</span>
                   <span className="bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
                     {t.hero.badge}
                   </span>
@@ -183,7 +183,7 @@ export default function HomePage() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/dashboard.png"
+                    src="/dashboard.webp"
                     alt="Real-time CMMS Dashboard showing maintenance metrics"
                     className="w-full h-auto rounded-2xl border border-white/10"
                   />

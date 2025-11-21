@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
 import { Inter } from 'next/font/google';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+// Navbar and Footer moved to (site)/layout.tsx
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import AuthProvider from '@/components/AuthProvider';
 import { JsonLd, organizationSchema } from '@/components/JsonLd';
@@ -43,21 +42,12 @@ export const metadata: Metadata = {
     siteName: 'Maintafox',
     type: 'website',
     locale: 'en_US',
-    images: [
-      {
-        url: '/dashboard.png',
-        width: 1200,
-        height: 630,
-        alt: 'Maintafox CMMS Dashboard',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Maintafox — CMMS for Proactive Maintenance',
     description:
       'Centralize assets, work orders, PMs, inventory, and analytics. Locally installed and supported in Algeria.',
-    images: ['/dashboard.png'],
   },
   alternates: { canonical: 'https://www.maintafox.systems' },
   robots: {
@@ -86,13 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <AuthProvider>
-          <LanguageProvider>
-            <div className="flex min-h-screen flex-col">
-              <Navbar />
-              <div className="flex-1">{children}</div>
-              <Footer />
-            </div>
-          </LanguageProvider>
+          <LanguageProvider>{children}</LanguageProvider>
         </AuthProvider>
       </body>
     </html>
