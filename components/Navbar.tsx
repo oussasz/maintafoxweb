@@ -133,12 +133,36 @@ export default function Navbar() {
 
       {/* Professional Full-Screen Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 transition-all duration-300 md:hidden ${
           mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
+        style={{
+          zIndex: 9999,
+          backgroundColor: '#0b1e35',
+        }}
       >
-        <div className="flex flex-col h-full pt-24 pb-8 px-6">
-          <div className="flex-1 space-y-6">
+        <div className="flex flex-col h-full p-6 bg-white" style={{ backgroundColor: '#ffffff' }}>
+          <div className="flex items-center justify-between mb-8">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 z-10 relative"
+            >
+              <Image src={logo} alt="Maintafox" width={24} height={24} className="rounded-sm" />
+              <span className="text-lg font-semibold" style={{ color: '#0b1e35' }}>
+                Maintafox
+              </span>
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-full hover:bg-slate-100 transition-colors z-10 relative"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" style={{ color: '#0b1e35' }} />
+            </button>
+          </div>
+
+          <div className="flex-1 space-y-6 overflow-y-auto">
             <Link
               href="/features"
               className="block text-2xl font-bold text-slate-900 hover:text-brand"

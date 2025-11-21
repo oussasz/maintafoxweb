@@ -20,6 +20,11 @@ body {
   overflow-x: hidden; /* avoid horizontal scroll from scaled wrapper rounding */
 }
 
+/* Adjust font size for French to compensate for longer text length */
+html:lang(fr) {
+  font-size: 15px;
+}
+
 body {
   @apply bg-white text-slate-900 antialiased;
   background-image: radial-gradient(#e5e7eb 1px, transparent 1px);

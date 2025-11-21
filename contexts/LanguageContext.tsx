@@ -39,6 +39,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const savedLocale = localStorage.getItem('locale') as Locale | null;
     const detectedLocale = savedLocale || detectBrowserLanguage();
     setLocaleState(detectedLocale);
+    document.documentElement.lang = detectedLocale;
     setMounted(true);
   }, []);
 
