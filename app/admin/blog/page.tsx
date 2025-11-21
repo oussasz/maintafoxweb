@@ -5,8 +5,10 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { PostWithAuthor } from '@/types/blog';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AdminBlogPage() {
+  const { t } = useLanguage();
   const { data: session, status } = useSession();
   const router = useRouter();
   const [posts, setPosts] = useState<PostWithAuthor[]>([]);
@@ -60,7 +62,7 @@ export default function AdminBlogPage() {
   if (status === 'loading' || loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <div className="text-lg text-slate-600">Loading...</div>
+        <div className="text-lg text-slate-600">{t.adminBlog.loading}</div>
       </div>
     );
   }
@@ -73,8 +75,8 @@ export default function AdminBlogPage() {
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-brand">Blog Moderation</h1>
-          <p className="mt-2 text-slate-600">Review and manage blog posts</p>
+          <h1 className="text-3xl font-bold text-brand">{t.adminBlog.title}</h1>
+          <p className="mt-2 text-slate-600">{t.adminBlog.subtitle}</p>
         </div>
 
         {/* Filters */}
@@ -89,7 +91,7 @@ export default function AdminBlogPage() {
                   : 'bg-white text-slate-700 hover:bg-slate-100'
               }`}
             >
-              {status}
+              {t.adminBlog.status[status as keyof typeof t.adminBlog.status]}
             </button>
           ))}
         </div>
@@ -98,7 +100,7 @@ export default function AdminBlogPage() {
         <div className="space-y-4">
           {posts.length === 0 ? (
             <div className="rounded-xl bg-white p-12 text-center shadow-lg">
-              <p className="text-slate-600">No {filter.toLowerCase()} posts found</p>
+              <p className="text-slate-600">{t.adminBlog.noPosts}</p>
             </div>
           ) : (
             posts.map((post) => (
@@ -116,12 +118,14 @@ export default function AdminBlogPage() {
                             : 'bg-yellow-100 text-yellow-700'
                         }`}
                       >
-                        {post.status}
+                        {t.adminBlog.status[post.status as keyof typeof t.adminBlog.status]}
                       </span>
                     </div>
                     <p className="mt-2 text-sm text-slate-600">{post.excerpt}</p>
                     <div className="mt-3 flex items-center gap-4 text-xs text-slate-500">
-                      <span>By {post.author.name}</span>
+                      <span>
+                        {t.adminBlog.by} {post.author.name}
+                      </span>
                       <span>•</span>
                       <span>{post.category}</span>
                       <span>•</span>
@@ -129,7 +133,7 @@ export default function AdminBlogPage() {
                     </div>
                     {post.rejectionNote && (
                       <div className="mt-3 rounded-lg bg-red-50 p-3 text-sm text-red-700">
-                        <strong>Rejection Note:</strong> {post.rejectionNote}
+                        <strong>{t.adminBlog.rejectionNote}:</strong> {post.rejectionNote}
                       </div>
                     )}
                   </div>
@@ -140,16 +144,16 @@ export default function AdminBlogPage() {
                           onClick={() => handleStatusChange(post.id, 'APPROVED')}
                           className="rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
                         >
-                          Approve
+                          {t.adminBlog.approve}
                         </button>
                         <button
                           onClick={() => {
-                            const note = prompt('Rejection reason:');
+                            const note = prompt(t.adminBlog.rejectionReason);
                             if (note) handleStatusChange(post.id, 'REJECTED', note);
                           }}
                           className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                         >
-                          Reject
+                          {t.adminBlog.reject}
                         </button>
                       </>
                     )}
@@ -157,7 +161,7 @@ export default function AdminBlogPage() {
                       href={`/blog/${post.slug}`}
                       className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
                     >
-                      View
+                      {t.adminBlog.view}
                     </Link>
                   </div>
                 </div>

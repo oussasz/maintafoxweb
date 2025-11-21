@@ -87,10 +87,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <AuthProvider>
           <LanguageProvider>
-            {/* Desktop-identical layout scaled for narrow screens */}
-            <div className="desktop-scale">
+            <div className="flex min-h-screen flex-col">
               <Navbar />
-              {children}
+              <div className="flex-1">{children}</div>
               <Footer />
             </div>
           </LanguageProvider>

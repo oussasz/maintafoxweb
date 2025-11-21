@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -34,6 +35,7 @@ const categories = [
 ];
 
 export default function PostEditor({ initialData, mode = 'create' }: PostEditorProps) {
+  const { t } = useLanguage();
   const router = useRouter();
   const { data: session, status } = useSession();
 
@@ -75,7 +77,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
     setLoading(true);
 
     if (!title || !excerpt || !content) {
-      setError('Please fill in all required fields');
+      setError(t.postEditor.errorRequired);
       setLoading(false);
       return;
     }
@@ -104,7 +106,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
 
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || 'Failed to save post');
+        throw new Error(data.error || t.postEditor.errorSave);
       }
 
       const data = await response.json();
@@ -119,7 +121,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
   if (status === 'loading') {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <div className="text-lg text-slate-600">Loading...</div>
+        <div className="text-lg text-slate-600">{t.postEditor.loading}</div>
       </div>
     );
   }
@@ -128,10 +130,10 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
     <div className="container mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-brand">
-          {mode === 'edit' ? 'Edit Post' : 'Create New Post'}
+          {mode === 'edit' ? t.postEditor.editTitle : t.postEditor.createTitle}
         </h1>
         <p className="mt-2 text-slate-600">
-          {mode === 'edit' ? 'Update your blog post' : 'Share your insights with the community'}
+          {mode === 'edit' ? t.postEditor.editSubtitle : t.postEditor.createSubtitle}
         </p>
       </div>
 
@@ -141,7 +143,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
         {/* Title */}
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-slate-700">
-            Title *
+            {t.postEditor.titleLabel}
           </label>
           <input
             type="text"
@@ -149,14 +151,14 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
-            placeholder="Enter post title"
+            placeholder={t.postEditor.titlePlaceholder}
           />
         </div>
 
         {/* Excerpt */}
         <div>
           <label htmlFor="excerpt" className="block text-sm font-medium text-slate-700">
-            Excerpt *
+            {t.postEditor.excerptLabel}
           </label>
           <textarea
             id="excerpt"
@@ -164,14 +166,14 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
             onChange={(e) => setExcerpt(e.target.value)}
             rows={3}
             className="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
-            placeholder="Brief description of your post"
+            placeholder={t.postEditor.excerptPlaceholder}
           />
         </div>
 
         {/* Category */}
         <div>
           <label htmlFor="category" className="block text-sm font-medium text-slate-700">
-            Category *
+            {t.postEditor.categoryLabel}
           </label>
           <select
             id="category"
@@ -181,7 +183,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
-                {cat}
+                {t.postEditor.categories[cat as keyof typeof t.postEditor.categories] || cat}
               </option>
             ))}
           </select>
@@ -190,7 +192,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
         {/* Tags */}
         <div>
           <label htmlFor="tags" className="block text-sm font-medium text-slate-700">
-            Tags
+            {t.postEditor.tagsLabel}
           </label>
           <input
             type="text"
@@ -199,7 +201,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
             onChange={(e) => setTagInput(e.target.value)}
             onKeyDown={handleAddTag}
             className="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
-            placeholder="Type and press Enter to add tags"
+            placeholder={t.postEditor.tagsPlaceholder}
           />
           {tags.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
@@ -225,7 +227,7 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
         {/* Cover Image */}
         <div>
           <label htmlFor="coverImage" className="block text-sm font-medium text-slate-700">
-            Cover Image URL (optional)
+            {t.postEditor.coverImageLabel}
           </label>
           <input
             type="url"
@@ -233,13 +235,15 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
             value={coverImage}
             onChange={(e) => setCoverImage(e.target.value)}
             className="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
-            placeholder="https://example.com/image.jpg"
+            placeholder={t.postEditor.coverImagePlaceholder}
           />
         </div>
 
         {/* Content Editor */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Content *</label>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            {t.postEditor.contentLabel}
+          </label>
           <div className="rounded-xl border border-slate-300 overflow-hidden">
             <ReactQuill
               theme="snow"
@@ -266,14 +270,14 @@ export default function PostEditor({ initialData, mode = 'create' }: PostEditorP
             disabled={loading}
             className="rounded-xl border-2 border-slate-300 px-6 py-3 font-semibold text-slate-700 transition-all hover:border-brand hover:text-brand disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Save as Draft
+            {t.postEditor.saveDraft}
           </button>
           <button
             onClick={() => handleSubmit(false)}
             disabled={loading}
             className="flex-1 rounded-xl bg-gradient-to-r from-brand to-brand-dark px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Submitting...' : 'Submit for Review'}
+            {loading ? t.postEditor.submitting : t.postEditor.submit}
           </button>
         </div>
       </div>

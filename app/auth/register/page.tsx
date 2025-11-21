@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function RegisterPage() {
+  const { t } = useLanguage();
   const router = useRouter();
 
   const [name, setName] = useState('');
@@ -19,12 +21,12 @@ export default function RegisterPage() {
     setError('');
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError(t.auth.register.passwordsDoNotMatch);
       return;
     }
 
     if (password.length < 8) {
-      setError('Password must be at least 8 characters');
+      setError(t.auth.register.passwordTooShort);
       return;
     }
 
@@ -40,7 +42,7 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Registration failed');
+        setError(data.error || t.auth.register.error);
         setLoading(false);
         return;
       }
@@ -48,7 +50,7 @@ export default function RegisterPage() {
       // Redirect to login page with success message
       router.push('/auth/login?registered=true');
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      setError(t.auth.register.genericError);
       setLoading(false);
     }
   };
@@ -59,8 +61,8 @@ export default function RegisterPage() {
         <div className="mx-auto max-w-md">
           {/* Header */}
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-brand">Create Account</h1>
-            <p className="mt-2 text-slate-600">Join the Maintafox community</p>
+            <h1 className="text-3xl font-bold text-brand">{t.auth.register.title}</h1>
+            <p className="mt-2 text-slate-600">{t.auth.register.subtitle}</p>
           </div>
 
           {/* Register Form */}
@@ -72,7 +74,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-700">
-                  Full Name
+                  {t.auth.register.name}
                 </label>
                 <input
                   type="text"
@@ -88,7 +90,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-slate-700">
-                  Email
+                  {t.auth.register.email}
                 </label>
                 <input
                   type="email"
@@ -103,7 +105,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-slate-700">
-                  Password
+                  {t.auth.register.password}
                 </label>
                 <input
                   type="password"
@@ -115,7 +117,7 @@ export default function RegisterPage() {
                   className="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                   placeholder="••••••••"
                 />
-                <p className="mt-1 text-xs text-slate-500">Must be at least 8 characters</p>
+                <p className="mt-1 text-xs text-slate-500">{t.auth.register.passwordHint}</p>
               </div>
 
               <div>
@@ -123,7 +125,7 @@ export default function RegisterPage() {
                   htmlFor="confirmPassword"
                   className="block text-sm font-medium text-slate-700"
                 >
-                  Confirm Password
+                  {t.auth.register.confirmPassword}
                 </label>
                 <input
                   type="password"
@@ -141,14 +143,14 @@ export default function RegisterPage() {
                 disabled={loading}
                 className="w-full rounded-xl bg-gradient-to-r from-brand to-brand-dark px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? 'Creating account...' : 'Create Account'}
+                {loading ? t.auth.register.submitting : t.auth.register.submit}
               </button>
             </form>
 
             <div className="mt-6 text-center text-sm text-slate-600">
-              Already have an account?{' '}
+              {t.auth.register.hasAccount}{' '}
               <Link href="/auth/login" className="font-semibold text-brand hover:text-accent">
-                Sign in
+                {t.auth.register.loginLink}
               </Link>
             </div>
           </div>
@@ -156,7 +158,7 @@ export default function RegisterPage() {
           {/* Back to home */}
           <div className="mt-6 text-center">
             <Link href="/" className="text-sm text-slate-600 hover:text-brand">
-              ← Back to home
+              {t.auth.register.backHome}
             </Link>
           </div>
         </div>

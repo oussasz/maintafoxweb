@@ -5,7 +5,14 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "contact": "Contact",
-    "demo": "Book Demo"
+    "demo": "Book Demo",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "writePost": "Write Post",
+    "adminDashboard": "Admin Dashboard",
+    "signedInAs": "Signed in as",
+    "language": "Language",
+    "admin": "Admin"
   },
   "hero": {
     "badge": "Algeria's First Local CMMS",
@@ -186,7 +193,10 @@
     }
   },
   "footer": {
-    "tagline": "Modern maintenance management for forward-thinking teams.",
+    "tagline": "Computerized maintenance management software engineered in Algeria to boost uptime, safety, and cost control.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us (Algeria)",
+    "rights": "All rights reserved.",
     "product": "Product",
     "company": "Company",
     "resources": "Resources",
@@ -308,7 +318,764 @@
     }
   },
   "featuresPage": {
-    "title": "Comprehensive Features",
-    "subtitle": "Everything you need to manage maintenance operations effectively"
+    "hero": {
+      "title": "CMMS features engineered for reliability leaders",
+      "subtitle": "Maintafox unifies assets, work execution, spare parts, and analytics in one localized CMMS platform. Every feature is designed with Algerian maintenance teams to drive uptime, safety, and cost control.",
+      "ctaPrimary": "Request a feature walkthrough",
+      "ctaSecondary": "Talk with our solution engineers",
+      "differentiators": {
+        "title": "What makes Maintafox different?",
+        "items": [
+          "Localized deployment options (cloud or on-premise) with Algerian data residency.",
+          "Multi-language interface (Arabic, French, English) and configurable user roles.",
+          "Implementation accelerators, templates, and KPI dashboards for mission-critical industries."
+        ]
+      }
+    },
+    "modules": {
+      "title": "Core CMMS modules",
+      "subtitle": "Streamline maintenance operations with connected modules that share the same data model and analytics engine.",
+      "items": [
+        {
+          "title": "Asset Lifecycle Management",
+          "details": [
+            "Complete equipment register with customizable hierarchies, BOMs, and risk ratings.",
+            "Attach manuals, drawings, warranties, and compliance certificates.",
+            "Capture condition data, meter readings, and failure codes to spot trends."
+          ]
+        },
+        {
+          "title": "Intelligent Work Orders",
+          "details": [
+            "Smart forms, checklists, and photo capture on mobile devices with offline sync.",
+            "Role-based approvals, SLA monitoring, and automatic escalations.",
+            "Technician workload balancing with drag-and-drop planning board."
+          ]
+        },
+        {
+          "title": "Preventive Maintenance Automation",
+          "details": [
+            "Calendar, meter, event, and condition-based schedules covering assets and subassemblies.",
+            "Generate routes and inspections to standardize safety and compliance tasks.",
+            "Track PM compliance and overdue tasks with dashboards and notifications."
+          ]
+        },
+        {
+          "title": "Spare Parts & Procurement",
+          "details": [
+            "Multi-warehouse inventory with reorder points, lead times, and supplier scorecards.",
+            "Cost tracking, purchase requisitions, and approvals built for maintenance buyers.",
+            "Barcode scanning and kits for rapid technician issuing."
+          ]
+        },
+        {
+          "title": "Analytics & Reporting",
+          "details": [
+            "Executive dashboards for MTTR, MTBF, backlog, OEE, and budget vs actual.",
+            "Scheduler productivity, technician utilization, and labor cost reporting.",
+            "Export to Excel, Power BI, or PDF with one click."
+          ]
+        },
+        {
+          "title": "Health, Safety & Compliance",
+          "details": [
+            "Permit-to-work workflows, lockout/tagout checklists, and risk mitigation forms.",
+            "Audit-ready traceability with digital signatures and time-stamped history.",
+            "Documentation control for ISO 55000, API, GMP, and local regulations."
+          ]
+        }
+      ]
+    },
+    "reliability": {
+      "title": "Reliability and continuous improvement toolkit",
+      "subtitle": "Go beyond basic maintenance management. Maintafox empowers reliability engineers with analytics, collaboration, and predictive insights to drive sustainable performance.",
+      "features": [
+        "Failure mode analytics and Pareto charts to prioritize reliability initiatives.",
+        "Condition monitoring dashboards for vibration, temperature, and energy readings.",
+        "AI-assisted recommendations for spare part optimization and predictive maintenance.",
+        "Maintenance budgeting tools that forecast costs based on backlog and asset criticality.",
+        "Root cause analysis templates and 5-Why workflows to institutionalize learnings."
+      ],
+      "dashboards": {
+        "title": "Reliability dashboards",
+        "items": [
+          {
+            "title": "Reliability snapshot",
+            "desc": "Compare MTBF and MTTR across sites, assets, and production lines."
+          },
+          {
+            "title": "Backlog and risk",
+            "desc": "Visualize overdue PMs, critical corrective work, and risk scoring in one view."
+          },
+          {
+            "title": "Cost intelligence",
+            "desc": "Track maintenance budget vs actual, labor cost, and spare part consumption trends."
+          }
+        ]
+      }
+    },
+    "mobility": {
+      "title": "Mobile-first maintenance execution",
+      "subtitle": "Give technicians the tools they need on the shop floor, in remote facilities, or across expansive sites.",
+      "highlights": [
+        "Native Android app with offline-first sync for field technicians.",
+        "Digital work instructions, checklists, and auditable signatures.",
+        "QR code scanning to instantly view asset history and open new requests.",
+        "Voice dictation and photo annotations to capture rich maintenance feedback."
+      ],
+      "offlineNote": "Offline mode ensures technicians can execute work orders, capture data, and sync once connectivity is restored.",
+      "roles": {
+        "title": "Role-based CMMS experiences",
+        "items": [
+          {
+            "role": "Maintenance Manager",
+            "value": "Plan resources, approve work, and analyze KPIs from a single command center."
+          },
+          {
+            "role": "Reliability Engineer",
+            "value": "Drill into root causes, failure modes, and lifecycle cost to drive strategy."
+          },
+          {
+            "role": "Technician",
+            "value": "Receive prioritized work, complete guided procedures, and capture completion data in seconds."
+          },
+          {
+            "role": "Stores & Procurement",
+            "value": "Control stock levels, manage suppliers, and track part usage directly from the CMMS."
+          }
+        ]
+      }
+    },
+    "integrations": {
+      "title": "Integrations and interoperability",
+      "subtitle": "Maintafox connects with your existing business systems, OT infrastructure, and collaboration tools to create a closed loop between maintenance, operations, and finance.",
+      "categories": [
+        {
+          "title": "Business Systems",
+          "tools": ["SAP", "Odoo", "Microsoft Dynamics 365", "Sage", "Custom ERP"]
+        },
+        {
+          "title": "OT & IoT",
+          "tools": [
+            "SCADA",
+            "OPC UA",
+            "Modbus Gateways",
+            "Industrial IoT sensors",
+            "Historian databases"
+          ]
+        },
+        {
+          "title": "Collaboration",
+          "tools": ["Microsoft Teams", "Slack", "Email alerts", "SMS gateways"]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Experience the Maintafox platform",
+      "subtitle": "Discover how Maintafox can transform your maintenance organization with a guided feature-by-feature demonstration tailored to your KPIs, assets, and workforce.",
+      "primary": "Book a live demo",
+      "secondary": "Download the feature checklist"
+    }
+  },
+  "pricingPage": {
+    "hero": {
+      "title": "Simple, Transparent Pricing",
+      "subtitle": "Choose the right plan for your maintenance operations. All plans include bilingual support and local implementation assistance in Algeria."
+    },
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "Contact Us",
+        "description": "Perfect for small facilities getting started with CMMS",
+        "features": [
+          "Up to 100 assets",
+          "Work order management",
+          "Preventive maintenance scheduling",
+          "Mobile app access",
+          "Basic analytics dashboard",
+          "Email support",
+          "On-premise or cloud"
+        ],
+        "cta": "Get Started",
+        "badge": ""
+      },
+      {
+        "name": "Professional",
+        "price": "Contact Us",
+        "description": "For growing organizations with complex maintenance needs",
+        "features": [
+          "Unlimited assets",
+          "Advanced work order automation",
+          "Predictive maintenance AI",
+          "Inventory & procurement",
+          "Custom dashboards & reports",
+          "Priority phone & email support",
+          "Integration connectors",
+          "Multi-site management",
+          "Role-based access control"
+        ],
+        "cta": "Request Demo",
+        "badge": "Most Popular"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "Tailored solutions for large industrial operations",
+        "features": [
+          "Everything in Professional",
+          "Dedicated implementation team",
+          "24/7 bilingual support hotline",
+          "Custom integrations (ERP, IoT)",
+          "Advanced security & compliance",
+          "On-site training & workshops",
+          "Dedicated account manager",
+          "SLA guarantees",
+          "White-label options"
+        ],
+        "cta": "Contact Sales",
+        "badge": ""
+      }
+    ],
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Why don't you list specific prices?",
+          "answer": "Every organization has unique maintenance needs, facility size, and integration requirements. We provide custom quotes to ensure you only pay for what you need. Contact us for a transparent, no-obligation quote."
+        },
+        {
+          "question": "Can I deploy Maintafox on-premise?",
+          "answer": "Yes! All plans support both on-premise deployment (within your Algerian facility) and secure cloud hosting. On-premise deployment ensures data residency and complete control over your maintenance data."
+        },
+        {
+          "question": "What support is included?",
+          "answer": "All plans include bilingual (Arabic/French) support during business hours. Professional and Enterprise plans receive priority support, and Enterprise clients get 24/7 hotline access with guaranteed response times."
+        },
+        {
+          "question": "How long does implementation take?",
+          "answer": "Starter plans can be live in 2-4 weeks. Professional deployments typically take 6-8 weeks. Enterprise implementations range from 3-6 months depending on customization and integration requirements. We provide dedicated project management throughout."
+        },
+        {
+          "question": "Do you offer training?",
+          "answer": "Yes! All plans include initial user training. Professional plans include advanced training sessions, and Enterprise plans include on-site workshops and train-the-trainer programs to build internal expertise."
+        },
+        {
+          "question": "Can I switch plans later?",
+          "answer": "Absolutely. As your organization grows, you can upgrade to access more features, users, and support levels. We make transitions seamless with data migration assistance."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Maintenance?",
+      "subtitle": "Schedule a personalized demo to see Maintafox in action and get a custom quote for your facility.",
+      "primary": "Request a Demo",
+      "secondary": "Contact Sales"
+    }
+  },
+  "home": {
+    "trustedBy": "Trusted by Algerian innovators",
+    "industries": {
+      "manufacturing": "Industrial Manufacturing",
+      "oilGas": "Oil & Gas Operations",
+      "healthcare": "Healthcare Facilities",
+      "smartCities": "Smart Cities"
+    },
+    "sixPillars": {
+      "title": "Six pillars of maintenance excellence",
+      "subtitle": "Every module shares a unified data model and adapts to Algerian regulatory frameworks."
+    },
+    "results": {
+      "title": "Results that speak louder than promises",
+      "subtitle": "Real performance data from Algerian plants using Maintafox CMMS."
+    },
+    "howItWorks": {
+      "title": "From kickoff to continuous improvement",
+      "subtitle": "Our proven implementation playbook delivers value quickly while equipping your maintenance team for long-term success.",
+      "step": "Step",
+      "steps": [
+        {
+          "title": "Discover",
+          "body": "Audit existing workflows, assets, compliance requirements, and available data sources. Build the rollout roadmap with your stakeholders."
+        },
+        {
+          "title": "Configure",
+          "body": "Import asset registers, set preventive maintenance plans, create work order templates, and configure notifications in Arabic, French, or English."
+        },
+        {
+          "title": "Adopt",
+          "body": "Deliver classroom and on-the-floor training. Launch mobile CMMS apps, digital checklists, and technician certifications."
+        },
+        {
+          "title": "Optimize",
+          "body": "Review KPIs, fine-tune dashboards, connect to ERP/SCADA systems, and unlock predictive maintenance insights."
+        }
+      ]
+    },
+    "lovedBy": {
+      "title": "Loved by maintenance professionals",
+      "subtitle": "Hear from Algerian plant managers, reliability engineers, and technicians who trust Maintafox every day."
+    },
+    "purposeBuilt": {
+      "title": "Purpose-built for mission-critical industries",
+      "p1": "Maintafox adapts to the way your maintenance organization works. Our domain experts bring field experience from manufacturing, energy, transportation, real estate, and government sectors across the MENA region.",
+      "p2": "Each deployment includes industry-specific templates, KPI dashboards, and regulatory checklists to accelerate adoption.",
+      "list": [
+        "Manufacturing & Industrial Plants",
+        "Oil & Gas, Energy, and Utilities",
+        "Healthcare Facilities & Biomedical Teams",
+        "Transportation, Fleet, and Logistics",
+        "Hospitality, Real Estate, and Facility Management",
+        "Public Sector, Municipalities, and Smart Cities"
+      ]
+    },
+    "buyersGuide": {
+      "title": "CMMS Buyer's Guide",
+      "description": "Learn how to evaluate computerized maintenance management systems, calculate ROI, and build stakeholder alignment. The guide includes checklists, KPI benchmarks, and an implementation roadmap.",
+      "cta": "Request the PDF guide"
+    },
+    "webinar": {
+      "title": "Maintenance Excellence Webinar Series",
+      "description": "Join our monthly live sessions covering reliability-centered maintenance, spare part optimization, and asset performance analytics tailored for Algerian industries.",
+      "cta": "Reserve your seat"
+    },
+    "faq": {
+      "title": "Frequently asked questions about Maintafox",
+      "subtitle": "Everything you need to know about our computerized maintenance management system, implementation methodology, and support services.",
+      "items": [
+        {
+          "question": "How fast can our maintenance team be live on Maintafox?",
+          "answer": "Most Algerian plants go live in 4-6 weeks. We import your asset register, configure preventive maintenance plans, train users, and validate KPIs before handover."
+        },
+        {
+          "question": "Does Maintafox integrate with ERP or SCADA systems?",
+          "answer": "Yes. Our API and integration toolkit connect with SAP, Odoo, Dynamics, and leading SCADA or historian platforms to synchronize assets, work orders, and inventory levels."
+        },
+        {
+          "question": "Is the solution available on-premise?",
+          "answer": "We support both secure cloud hosting in Algeria and on-premise deployments to meet IT and compliance requirements, including offline-capable technician apps."
+        },
+        {
+          "question": "Can Maintafox help with regulatory compliance?",
+          "answer": "Audit trails, digital logbooks, calibration schedules, and document control help teams meet ISO 55000, GMP, API, and national safety regulations."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to modernize maintenance with a CMMS built in Algeria?",
+      "subtitle": "See Maintafox in action and discover how our localized computerized maintenance management system boosts reliability, asset uptime, and operational profitability.",
+      "primary": "Schedule your free demo",
+      "secondary": "Talk with our experts"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "About Maintafox",
+      "subtitle": "Maintafox is Algeria's first locally built computerized maintenance management system (CMMS). We combine deep industry expertise with modern engineering to empower maintenance teams to work smarter, safer, and more transparently.",
+      "mission": "Our mission is to help organizations shift from reactive firefighting to proactive asset performance management through technology, training, and trusted partnership.",
+      "fastFacts": {
+        "title": "Fast facts",
+        "items": [
+          "Headquartered in Algiers with implementation teams across key industrial regions.",
+          "Recognized by NABTAKAR / Ministry of Startups as an Innovative Project in the maintenance technology space.",
+          "Bilingual product and support (Arabic, French, English) to match the needs of Algerian teams."
+        ]
+      }
+    },
+    "story": {
+      "title": "How Maintafox started",
+      "p1": "After years solving industrial maintenance challenges, our founders saw the gap between global CMMS products and the realities of Algerian plants. Maintafox was born to deliver a localized, secure, and affordable alternative with hands-on support to ensure adoption sticks.",
+      "p2": "We work side-by-side with manufacturing, energy, healthcare, and public-sector organizations to digitize maintenance, reduce downtime, and empower technicians with modern tools.",
+      "playbook": {
+        "title": "Our implementation playbook",
+        "steps": [
+          {
+            "title": "1. Discover:",
+            "desc": "Assess maintenance maturity, data inputs, and KPIs to align objectives."
+          },
+          {
+            "title": "2. Configure:",
+            "desc": "Import asset registers, build preventive plans, and tailor workflows in the CMMS."
+          },
+          {
+            "title": "3. Adopt:",
+            "desc": "Train technicians, planners, and managers with bilingual classroom and on-site coaching."
+          },
+          {
+            "title": "4. Optimize:",
+            "desc": "Review KPIs, integrate with ERP/SCADA, and unlock predictive maintenance insights."
+          }
+        ]
+      }
+    },
+    "milestones": {
+      "title": "Our milestones",
+      "items": [
+        {
+          "year": "2021",
+          "title": "Concept & Research",
+          "description": "Partnered with maintenance directors across Algerian manufacturing plants to map daily challenges and document the CMMS capabilities needed locally."
+        },
+        {
+          "year": "2022",
+          "title": "Product Build",
+          "description": "Developed the Maintafox platform with bilingual interfaces, on-premise deployment, and integration connectors for popular ERPs."
+        },
+        {
+          "year": "2023",
+          "title": "Market Validation",
+          "description": "Recognized by NABTAKAR / Ministry of Startups – Algeria as an Innovative Project after successful pilots in industrial and energy sectors."
+        },
+        {
+          "year": "Today",
+          "title": "Scaling Reliability",
+          "description": "Supporting organizations across manufacturing, healthcare, utilities, and public sector as they modernize maintenance operations."
+        }
+      ]
+    },
+    "values": {
+      "title": "What we stand for",
+      "subtitle": "Maintafox is built on collaboration between engineers, developers, and maintenance professionals. Our values guide how we deliver software, services, and support.",
+      "items": [
+        {
+          "title": "Local partnership",
+          "detail": "We co-create with Algerian maintenance, engineering, and IT teams to ensure Maintafox fits operational realities and regulatory frameworks."
+        },
+        {
+          "title": "Operational excellence",
+          "detail": "Every feature we build must improve uptime, safety, and cost control. We measure success by your maintenance KPIs."
+        },
+        {
+          "title": "Transparency & trust",
+          "detail": "From implementation roadmaps to product roadmap visibility, we operate with clarity so stakeholders stay aligned."
+        },
+        {
+          "title": "Continuous learning",
+          "detail": "We are engineers, data scientists, and maintenance professionals who continuously iterate based on field feedback."
+        }
+      ]
+    },
+    "leadership": {
+      "title": "Leadership",
+      "subtitle": "Our leadership team blends maintenance expertise, software craftsmanship, and customer success experience to deliver a CMMS platform rooted in Algerian industry needs.",
+      "items": [
+        {
+          "name": "Oussama ZERBIB",
+          "role": "Founder & CEO",
+          "bio": "Reliability engineer and entrepreneur with a passion for industrial innovation, digital transformation, and building resilient maintenance teams."
+        },
+        {
+          "name": "Samir Bekhti",
+          "role": "Head of Product",
+          "bio": "Over 12 years designing mission-critical software for energy and transport sectors, specializing in human-centered UX and CMMS workflows."
+        },
+        {
+          "name": "Imène Benali",
+          "role": "Customer Success Lead",
+          "bio": "Maintenance management consultant supporting clients through training, change management, and KPI-driven optimization."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Join the Maintafox journey",
+      "subtitle": "We are always exploring new partnerships with maintenance teams, integrators, and technology providers who share our vision for reliable, sustainable operations in Algeria and beyond.",
+      "primary": "Partner with us",
+      "secondary": "Contact Maintafox"
+    }
+  },
+  "demoPage": {
+    "hero": {
+      "badge": "Schedule Your Demo",
+      "title": "See Maintafox in",
+      "titleHighlight": "Action",
+      "subtitle": "Share your maintenance objectives and we'll tailor a walkthrough of the Maintafox platform covering asset hierarchies, work order intelligence, preventive maintenance plans, inventory optimization, and analytics dashboards relevant to your operations.",
+      "highlights": [
+        { "icon": "⏱️", "text": "45-minute demo with Q&A" },
+        { "icon": "🌍", "text": "Arabic, French, or English" },
+        { "icon": "🎯", "text": "Tailored to your industry" }
+      ]
+    },
+    "form": {
+      "title": "Request Your Demo",
+      "subtitle": "We'll respond within 1 business day",
+      "fields": {
+        "name": "Full name *",
+        "namePlaceholder": "John Smith",
+        "company": "Company *",
+        "companyPlaceholder": "Your Company Name",
+        "email": "Work email *",
+        "emailPlaceholder": "john@company.com",
+        "phone": "Phone *",
+        "phonePlaceholder": "+213 XXX XXX XXX",
+        "message": "Tell us about your needs *",
+        "messagePlaceholder": "Describe your assets, current tools, and KPIs you want to improve..."
+      },
+      "submit": "Send Request",
+      "submitting": "Sending...",
+      "success": "✓ Thanks! We'll be in touch shortly.",
+      "error": "Something went wrong. Please try again later.",
+      "validationError": "Please fill all fields correctly."
+    },
+    "expectations": {
+      "title": "What to Expect",
+      "items": [
+        "Discovery conversation on your maintenance workflows, compliance requirements, and integration landscape.",
+        "Live tour of asset management, work order intelligence, preventive scheduling, and analytics dashboards.",
+        "Discussion of deployment options (cloud, on-premise, hybrid) and security best practices.",
+        "Recommended next steps, from pilot projects to enterprise rollouts with change management support."
+      ]
+    },
+    "help": {
+      "title": "Need Immediate Help?",
+      "email": "contact@maintafox.systems",
+      "phone": "+213 (540) 537-886"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "error": "Invalid email or password",
+      "genericError": "An error occurred. Please try again.",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register here",
+      "backHome": "← Back to home"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Get started with Maintafox",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Register",
+      "submitting": "Creating account...",
+      "error": "Registration failed",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in here",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 8 characters",
+      "passwordHint": "Must be at least 8 characters",
+      "genericError": "An error occurred. Please try again.",
+      "backHome": "← Back to home"
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "lookingFor": "Looking for something specific?",
+    "demo": "Request a Demo",
+    "features": "View Features",
+    "pricing": "See Pricing",
+    "contact": "Contact Us",
+    "backHome": "← Back to Homepage"
+  },
+  "blogPage": {
+    "knowledgeHub": "Knowledge Hub",
+    "title": "Maintafox Insights",
+    "description": "Practical guides, benchmarks, and thought leadership on maintenance reliability, CMMS best practices, and digital transformation across Algerian industries.",
+    "writePost": "Write a Post",
+    "noPostsTitle": "No posts yet",
+    "noPostsDescription": "Be the first to share your insights!",
+    "createPost": "Create Post",
+    "readMore": "Read more",
+    "newsletterTitle": "Never miss an insight",
+    "newsletterDescription": "Subscribe to the Maintafox newsletter for maintenance playbooks, industry benchmarking data, and invitations to our exclusive webinar series.",
+    "joinNewsletter": "Join the newsletter"
+  },
+  "adminBlog": {
+    "title": "Blog Moderation",
+    "subtitle": "Review and manage blog posts",
+    "loading": "Loading...",
+    "noPosts": "No posts found",
+    "by": "By",
+    "rejectionNote": "Rejection Note",
+    "approve": "Approve",
+    "reject": "Reject",
+    "view": "View",
+    "rejectionReason": "Rejection reason:",
+    "status": {
+      "PENDING": "PENDING",
+      "APPROVED": "APPROVED",
+      "REJECTED": "REJECTED",
+      "DRAFT": "DRAFT"
+    }
+  },
+  "postEditor": {
+    "createTitle": "Create New Post",
+    "createSubtitle": "Share your insights with the community",
+    "editTitle": "Edit Post",
+    "editSubtitle": "Update your blog post",
+    "loading": "Loading...",
+    "errorRequired": "Please fill in all required fields",
+    "errorSave": "Failed to save post",
+    "titleLabel": "Title *",
+    "titlePlaceholder": "Enter post title",
+    "excerptLabel": "Excerpt *",
+    "excerptPlaceholder": "Brief description of your post",
+    "categoryLabel": "Category *",
+    "tagsLabel": "Tags",
+    "tagsPlaceholder": "Type and press Enter to add tags",
+    "coverImageLabel": "Cover Image URL (optional)",
+    "coverImagePlaceholder": "https://example.com/image.jpg",
+    "contentLabel": "Content *",
+    "saveDraft": "Save as Draft",
+    "submit": "Submit for Review",
+    "submitting": "Submitting...",
+    "categories": {
+      "Maintenance Strategy": "Maintenance Strategy",
+      "Analytics & KPIs": "Analytics & KPIs",
+      "Mobile Maintenance": "Mobile Maintenance",
+      "Finance & Planning": "Finance & Planning",
+      "Asset Management": "Asset Management",
+      "Best Practices": "Best Practices",
+      "Technology": "Technology",
+      "Case Studies": "Case Studies"
+    }
+  },
+  "blogPost": {
+    "home": "Home",
+    "blog": "Blog",
+    "backToPosts": "Back to all posts",
+    "views": "views",
+    "draft": "Draft",
+    "postNotFound": "Post Not Found",
+    "readTime": "min read"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 5 January 2025",
+    "sections": [
+      {
+        "heading": "1. Introduction",
+        "body": "Maintafox Systems (“Maintafox”, “we”, “our”, or “us”) provides computerized maintenance management system (CMMS) software and related services headquartered in Algeria. This Privacy Policy explains how we collect, use, disclose, and safeguard personal data when you visit our websites, request a demo, sign up for communications, or use the Maintafox platform. By interacting with Maintafox, you consent to the practices described here."
+      },
+      {
+        "heading": "2. Data we collect",
+        "body": "We collect personal data directly from you, automatically through digital services, and from third parties when permitted. This includes: contact details (name, email, phone, organization, job title); account credentials and authentication data; usage information such as IP address, browser type, pages viewed, and timestamps; maintenance data uploaded by customers to the platform (e.g., asset records, work orders, technician information); billing details for subscriptions; and communication preferences."
+      },
+      {
+        "heading": "3. Purpose and legal basis",
+        "body": "We process personal data to provide and improve the Maintafox services, including creating and administering accounts, delivering support, processing demo requests, and communicating product updates. We rely on contractual necessity, legitimate interest, and consent (where required) as legal bases. We may also process data to meet legal obligations, enforce agreements, or respond to lawful requests from authorities."
+      },
+      {
+        "heading": "4. How we use platform data",
+        "body": "Customer maintenance data uploaded to the Maintafox CMMS is processed strictly in accordance with customer instructions. We use this data to deliver functionality such as asset management, preventive maintenance scheduling, analytics, and integrations. We do not sell or share platform data with advertisers. Aggregated or anonymized information may be used for benchmarking and product improvement."
+      },
+      {
+        "heading": "5. Sharing and disclosures",
+        "body": "We share personal data with trusted service providers who perform services on our behalf (such as hosting, email delivery, analytics, and customer support). These providers are bound by confidentiality and data protection obligations. We may disclose information if required by law, to protect Maintafox rights, or during a corporate transaction (merger, acquisition, or asset sale)."
+      },
+      {
+        "heading": "6. International transfers",
+        "body": "Maintafox primarily stores data in Algeria and the European Union. When we transfer data outside of these regions, we implement appropriate safeguards such as standard contractual clauses or equivalent legal mechanisms, and ensure recipients maintain adequate levels of data protection."
+      },
+      {
+        "heading": "7. Data retention",
+        "body": "We retain personal data for as long as necessary to provide the services, comply with legal obligations, resolve disputes, and enforce agreements. Customer platform data is retained according to the applicable contract and deleted or returned upon written request or termination, subject to statutory retention requirements."
+      },
+      {
+        "heading": "8. Your rights",
+        "body": "Depending on your jurisdiction, you may have the right to access, correct, update, restrict, object to, or delete your personal data. You may also withdraw consent or request a copy of your data. To exercise these rights, contact us at privacy@maintafox.systems. We will respond within applicable legal timeframes."
+      },
+      {
+        "heading": "9. Security measures",
+        "body": "Maintafox employs organizational, technical, and administrative safeguards to protect personal data, including encryption in transit, role-based access control, audit logging, and regular security assessments. While we strive to protect your information, no method of transmission or storage is completely secure; please notify us immediately of any suspected unauthorized access."
+      },
+      {
+        "heading": "10. Cookies and tracking technologies",
+        "body": "We use cookies, local storage, and similar technologies to remember preferences, track site usage, and support analytics. You can control cookie preferences through browser settings. Some features may become unavailable if certain cookies are disabled."
+      },
+      {
+        "heading": "11. Third-party services",
+        "body": "Our website may include links to third-party sites or integrations. Maintafox is not responsible for the privacy practices of these third parties. We recommend reviewing the privacy policies of each service you access."
+      },
+      {
+        "heading": "12. Children’s privacy",
+        "body": "Maintafox services are intended for business users and are not directed at children under 16. We do not knowingly collect personal data from children. If you believe we have received information about a child, contact us to request deletion."
+      },
+      {
+        "heading": "13. Updates to this policy",
+        "body": "We may update this Privacy Policy to reflect new services, legal requirements, or security practices. Any material changes will be communicated through our website or direct notification. The “Last updated” date indicates the latest revision."
+      },
+      {
+        "heading": "14. Contact",
+        "body": "For questions or concerns regarding this Privacy Policy or our data practices, please contact Maintafox Systems at privacy@maintafox.systems or Technoparc Sidi Abdellah, Dar El Beida, Algiers, Algeria."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: 5 January 2025",
+    "sections": [
+      {
+        "heading": "1. Agreement overview",
+        "body": "These Terms of Service (“Terms”) govern access to and use of the Maintafox Systems (“Maintafox”, “we”, “our”) computerized maintenance management system (CMMS), websites, and related services (the “Services”). By creating an account, signing a proposal, or using the Services, you agree to be bound by these Terms on behalf of the organization you represent (“Customer”). If you do not agree, you may not use the Services."
+      },
+      {
+        "heading": "2. Access and accounts",
+        "body": "Maintafox grants Customer a non-exclusive, non-transferable right to access the Services during the subscription term, subject to timely payment and compliance with these Terms. Customer is responsible for maintaining the confidentiality of login credentials and for all activities under its accounts. Customer must promptly notify Maintafox of any unauthorized access."
+      },
+      {
+        "heading": "3. Acceptable use",
+        "body": "Customer agrees not to use the Services to transmit malicious code, violate applicable laws, infringe third-party rights, or conduct penetration tests without prior written consent. Customer will not reverse engineer, decompile, or attempt to circumvent security controls. Maintafox may suspend access if Customer’s use poses a security risk, violates the law, or impacts service integrity."
+      },
+      {
+        "heading": "4. Customer data",
+        "body": "Customer retains ownership of all data, documents, and content uploaded to the Services (“Customer Data”). Maintafox processes Customer Data solely to provide, secure, and improve the Services according to the Privacy Policy and applicable contracts. Customer is responsible for the accuracy and legality of Customer Data and obtaining necessary permissions for its use. Upon termination, Maintafox will delete or return Customer Data in accordance with Section 11."
+      },
+      {
+        "heading": "5. Service availability",
+        "body": "Maintafox will use commercially reasonable efforts to provide 24/7 availability of the cloud-hosted Services, excluding planned maintenance windows and circumstances beyond Maintafox’s reasonable control (force majeure). Service level commitments, if any, are defined in the applicable subscription agreement or service-level addendum."
+      },
+      {
+        "heading": "6. Professional services",
+        "body": "Implementation, training, integration, or consulting services are delivered according to mutually agreed statements of work. Customer will provide timely access to facilities, systems, and personnel required for successful delivery."
+      },
+      {
+        "heading": "7. Fees and payment",
+        "body": "Subscription and professional service fees are invoiced as stated in the order form or contract. Unless otherwise agreed, invoices are due within 30 days. Late payments may incur interest at 1.5% per month (or the maximum allowed by law) and may result in suspension of the Services. Fees are exclusive of taxes and duties, which are the Customer’s responsibility."
+      },
+      {
+        "heading": "8. Intellectual property",
+        "body": "Maintafox owns all intellectual property rights in the Services, documentation, logos, and underlying technology. No rights are granted except as expressly provided in these Terms. Customer feedback may be used to enhance the Services, and Maintafox will own all derivatives without identifying Customer as the source."
+      },
+      {
+        "heading": "9. Confidentiality",
+        "body": "Each party will protect the other party’s confidential information with the same care it uses to protect its own confidential information (and at least reasonable care). Confidential information may be used solely to perform obligations under these Terms and must not be disclosed to third parties except to employees, contractors, or advisors bound by confidentiality obligations."
+      },
+      {
+        "heading": "10. Warranties and disclaimers",
+        "body": "Maintafox warrants that the Services will materially conform to the documentation and that professional services will be performed with reasonable skill and care. Except as expressly stated, the Services are provided “as is” and Maintafox disclaims all other warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement."
+      },
+      {
+        "heading": "11. Term and termination",
+        "body": "Unless otherwise specified, subscriptions renew automatically for successive terms equal to the initial term. Either party may terminate for material breach if the breach is not cured within 30 days of written notice. Upon termination, Customer must stop using the Services and pay all outstanding fees. Upon written request within 30 days, Maintafox will make Customer Data available for export. Thereafter, Maintafox will delete Customer Data, subject to legal retention obligations."
+      },
+      {
+        "heading": "12. Limitation of liability",
+        "body": "To the maximum extent permitted by law, neither party is liable for indirect, incidental, special, consequential, or punitive damages, or loss of profits, revenue, or data. Maintafox’s aggregate liability arising under these Terms will not exceed the amounts paid by Customer to Maintafox in the 12 months preceding the event giving rise to the claim."
+      },
+      {
+        "heading": "13. Indemnification",
+        "body": "Maintafox will defend Customer against third-party claims alleging that the Services infringe a valid intellectual property right and will pay resulting damages or settlements, provided Customer promptly notifies Maintafox and allows Maintafox to control the defense. Customer will indemnify Maintafox against claims arising from Customer Data or use of the Services in breach of these Terms or applicable law."
+      },
+      {
+        "heading": "14. Governing law and disputes",
+        "body": "These Terms are governed by the laws of Algeria. Any dispute will be subject to the exclusive jurisdiction of courts located in Algiers, Algeria, unless the parties agree to arbitration or another resolution mechanism in writing."
+      },
+      {
+        "heading": "15. General provisions",
+        "body": "These Terms, together with any signed order forms or statements of work, constitute the entire agreement between the parties regarding the Services. If a provision is held invalid, the remaining provisions remain in effect. Neither party may assign the agreement without the other’s consent, except Maintafox may assign to an affiliate or in connection with a merger or sale of assets. Notices must be in writing and delivered by email or registered mail to the contacts specified in the contract."
+      },
+      {
+        "heading": "16. Contact information",
+        "body": "For questions about these Terms, please contact Maintafox Systems, Technoparc Sidi Abdellah, Dar El Beida, Algiers, Algeria, or email legal@maintafox.systems."
+      }
+    ]
   }
 }

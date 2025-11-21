@@ -22,6 +22,8 @@ body {
 
 body {
   @apply bg-white text-slate-900 antialiased;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .container-12 {
@@ -42,25 +44,6 @@ body {
 
 .section-muted {
   @apply bg-slate-50;
-}
-
-/* Scale whole hero to show the desktop layout on narrow screens while keeping proportions.
-   The technique: compute a scale factor based on the viewport width and the original design width
-   (1200px). Apply transform: scale and set the wrapper width to inverse of the scale so the
-   scaled content fits the viewport exactly. This preserves heights (content isn't stretched).
-*/
-@media (max-width: 900px) {
-  .hero-scale {
-    --design-width: 1200px;
-    /* scale down when viewport is smaller than design width, otherwise use 1 */
-    --scale: calc(min(1, 100vw / var(--design-width)));
-    transform: scale(var(--scale));
-    transform-origin: top center;
-    /* make the scaled block take exactly the viewport width when scaled */
-    width: calc(100% / var(--scale));
-    /* prevent accidental overflow from child transforms */
-    display: block;
-  }
 }
 
 @keyframes fadeIn {
@@ -84,22 +67,14 @@ body {
   }
 }
 
-/* Global desktop -> mobile scaling wrapper
-   Apply to the entire page to make mobile look exactly like desktop,
-   only smaller. Keeps spacing, fonts, icons, and layout identical. */
-@media (max-width: 1200px) {
-  .desktop-scale {
-    --design-width: 1200px;
-    --scale: calc(min(1, 100vw / var(--design-width)));
-    transform: scale(var(--scale));
-    transform-origin: top center;
-    width: calc(100% / var(--scale));
-  }
-}
-
-/* Fine-grained mobile reductions without altering desktop classes */
+/* Mobile optimizations */
 @media (max-width: 640px) {
-  .hero-heading { font-size: 1.75rem; line-height: 1.2; }
-  .section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-  .btn-primary, .btn-outline { padding: 0.5rem 1rem; font-size: 0.75rem; }
+  .hero-heading {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }

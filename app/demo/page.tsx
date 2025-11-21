@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { z } from 'zod';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FormSchema = z.object({
   name: z.string().min(2),
@@ -11,6 +12,7 @@ const FormSchema = z.object({
 });
 
 export default function DemoPage() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +23,7 @@ export default function DemoPage() {
     const parsed = FormSchema.safeParse(data);
     if (!parsed.success) {
       setStatus('error');
-      setError('Please fill all fields correctly.');
+      setError(t.demoPage.form.validationError);
       return;
     }
     try {
@@ -34,7 +36,7 @@ export default function DemoPage() {
       setStatus('success');
     } catch (e) {
       setStatus('error');
-      setError('Something went wrong. Please try again later.');
+      setError(t.demoPage.form.error);
     }
   }
 
@@ -54,29 +56,20 @@ export default function DemoPage() {
                 <svg className="h-3.5 w-3.5 text-accent" fill="currentColor" viewBox="0 0 20 20">
                   <circle cx="10" cy="10" r="10" />
                 </svg>
-                Schedule Your Demo
+                {t.demoPage.hero.badge}
               </div>
               <h1 className="mt-6 text-5xl font-bold tracking-tight">
-                See Maintafox in{' '}
+                {t.demoPage.hero.title}{' '}
                 <span className="bg-gradient-to-r from-accent to-orange-400 bg-clip-text text-transparent">
-                  Action
+                  {t.demoPage.hero.titleHighlight}
                 </span>
               </h1>
-              <p className="mt-6 text-lg text-slate-200">
-                Share your maintenance objectives and we&apos;ll tailor a walkthrough of the
-                Maintafox platform covering asset hierarchies, work order intelligence, preventive
-                maintenance plans, inventory optimization, and analytics dashboards relevant to your
-                operations.
-              </p>
+              <p className="mt-6 text-lg text-slate-200">{t.demoPage.hero.subtitle}</p>
             </div>
 
             {/* Feature highlights */}
             <div className="mx-auto mt-12 grid max-w-4xl gap-4 md:grid-cols-3">
-              {[
-                { icon: '⏱️', text: '45-minute demo with Q&A' },
-                { icon: '🌍', text: 'Arabic, French, or English' },
-                { icon: '🎯', text: 'Tailored to your industry' },
-              ].map((item, index) => (
+              {t.demoPage.hero.highlights.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 backdrop-blur-sm ring-1 ring-white/10"
@@ -126,43 +119,41 @@ export default function DemoPage() {
                       </svg>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-brand">Request Your Demo</h2>
-                      <p className="text-sm text-slate-600">
-                        We&apos;ll respond within 1 business day
-                      </p>
+                      <h2 className="text-2xl font-bold text-brand">{t.demoPage.form.title}</h2>
+                      <p className="text-sm text-slate-600">{t.demoPage.form.subtitle}</p>
                     </div>
                   </div>
 
                   <form action={onSubmit} className="mt-8 space-y-4">
                     <div>
                       <label className="mb-1 block text-sm font-medium text-slate-700">
-                        Full name *
+                        {t.demoPage.form.fields.name}
                       </label>
                       <input
                         name="name"
-                        placeholder="John Smith"
+                        placeholder={t.demoPage.form.fields.namePlaceholder}
                         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                         required
                       />
                     </div>
                     <div>
                       <label className="mb-1 block text-sm font-medium text-slate-700">
-                        Company *
+                        {t.demoPage.form.fields.company}
                       </label>
                       <input
                         name="company"
-                        placeholder="Your Company Name"
+                        placeholder={t.demoPage.form.fields.companyPlaceholder}
                         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                         required
                       />
                     </div>
                     <div>
                       <label className="mb-1 block text-sm font-medium text-slate-700">
-                        Work email *
+                        {t.demoPage.form.fields.email}
                       </label>
                       <input
                         name="email"
-                        placeholder="john@company.com"
+                        placeholder={t.demoPage.form.fields.emailPlaceholder}
                         type="email"
                         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                         required
@@ -170,22 +161,22 @@ export default function DemoPage() {
                     </div>
                     <div>
                       <label className="mb-1 block text-sm font-medium text-slate-700">
-                        Phone *
+                        {t.demoPage.form.fields.phone}
                       </label>
                       <input
                         name="phone"
-                        placeholder="+213 XXX XXX XXX"
+                        placeholder={t.demoPage.form.fields.phonePlaceholder}
                         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                         required
                       />
                     </div>
                     <div>
                       <label className="mb-1 block text-sm font-medium text-slate-700">
-                        Tell us about your needs *
+                        {t.demoPage.form.fields.message}
                       </label>
                       <textarea
                         name="message"
-                        placeholder="Describe your assets, current tools, and KPIs you want to improve..."
+                        placeholder={t.demoPage.form.fields.messagePlaceholder}
                         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
                         rows={4}
                         required
@@ -214,11 +205,11 @@ export default function DemoPage() {
                                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                               />
                             </svg>
-                            Sending...
+                            {t.demoPage.form.submitting}
                           </>
                         ) : (
                           <>
-                            Send Request
+                            {t.demoPage.form.submit}
                             <svg
                               className="h-5 w-5 transition-transform group-hover:translate-x-1"
                               fill="none"
@@ -238,7 +229,7 @@ export default function DemoPage() {
                     </button>
                     {status === 'success' && (
                       <div className="rounded-xl bg-green-50 p-4 text-center text-sm font-medium text-green-700 ring-1 ring-green-200">
-                        ✓ Thanks! We&apos;ll be in touch shortly.
+                        {t.demoPage.form.success}
                       </div>
                     )}
                     {status === 'error' && error && (
@@ -272,14 +263,11 @@ export default function DemoPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold text-brand">What to Expect</h3>
+                  <h3 className="mt-4 text-xl font-bold text-brand">
+                    {t.demoPage.expectations.title}
+                  </h3>
                   <ul className="mt-6 space-y-4">
-                    {[
-                      'Discovery conversation on your maintenance workflows, compliance requirements, and integration landscape.',
-                      'Live tour of asset management, work order intelligence, preventive scheduling, and analytics dashboards.',
-                      'Discussion of deployment options (cloud, on-premise, hybrid) and security best practices.',
-                      'Recommended next steps, from pilot projects to enterprise rollouts with change management support.',
-                    ].map((item, index) => (
+                    {t.demoPage.expectations.items.map((item, index) => (
                       <li key={index} className="flex gap-3">
                         <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent">
                           {index + 1}
@@ -310,7 +298,7 @@ export default function DemoPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="mt-4 text-lg font-bold">Need Immediate Help?</h3>
+                  <h3 className="mt-4 text-lg font-bold">{t.demoPage.help.title}</h3>
                   <div className="mt-4 space-y-3 text-sm text-slate-200">
                     <div className="flex items-center gap-2">
                       <svg
@@ -327,10 +315,10 @@ export default function DemoPage() {
                         />
                       </svg>
                       <a
-                        href="mailto:contact@maintafox.systems"
+                        href={`mailto:${t.demoPage.help.email}`}
                         className="hover:text-accent transition-colors"
                       >
-                        contact@maintafox.systems
+                        {t.demoPage.help.email}
                       </a>
                     </div>
                     <div className="flex items-center gap-2">
@@ -347,8 +335,11 @@ export default function DemoPage() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      <a href="tel:+213540537886" className="hover:text-accent transition-colors">
-                        +213 (540) 537-886
+                      <a
+                        href={`tel:${t.demoPage.help.phone}`}
+                        className="hover:text-accent transition-colors"
+                      >
+                        {t.demoPage.help.phone}
                       </a>
                     </div>
                   </div>

@@ -27,7 +27,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur border-b' : 'bg-white/80 backdrop-blur'
       }`}
     >
-  <nav className="container-12 flex items-center justify-between py-2 md:py-4">
+      <nav className="container-12 flex items-center justify-between py-2 md:py-4">
         <Link href="/" className="flex items-center gap-1 sm:gap-2">
           <Image
             src={logo}
@@ -36,11 +36,13 @@ export default function Navbar() {
             height={20}
             className="rounded-sm w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
           />
-          <span className="text-xs sm:text-sm md:text-base font-semibold text-brand">Maintafox</span>
+          <span className="text-xs sm:text-sm md:text-base font-semibold text-brand">
+            Maintafox
+          </span>
         </Link>
 
         {/* Desktop Menu */}
-  <div className="hidden md:flex items-center gap-5 text-sm">
+        <div className="hidden md:flex items-center gap-5 text-sm">
           <Link href="/features" className="hover:text-brand">
             {t.nav.features}
           </Link>
@@ -74,7 +76,7 @@ export default function Navbar() {
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-xl ring-1 ring-slate-200 py-2">
                   <div className="px-4 py-2 border-b border-slate-100">
-                    <p className="text-xs text-slate-500">Signed in as</p>
+                    <p className="text-xs text-slate-500">{t.nav.signedInAs}</p>
                     <p className="text-sm font-medium text-slate-900 truncate">
                       {session.user.email}
                     </p>
@@ -85,13 +87,13 @@ export default function Navbar() {
 
                   {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
                     <Link href="/blog/create" className="block px-4 py-2 text-sm hover:bg-slate-50">
-                      Write Post
+                      {t.nav.writePost}
                     </Link>
                   )}
 
                   {session.user.role === 'ADMIN' && (
                     <Link href="/admin/blog" className="block px-4 py-2 text-sm hover:bg-slate-50">
-                      Admin Dashboard
+                      {t.nav.adminDashboard}
                     </Link>
                   )}
 
@@ -99,14 +101,14 @@ export default function Navbar() {
                     onClick={() => signOut({ callbackUrl: '/' })}
                     className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50"
                   >
-                    Sign Out
+                    {t.nav.signOut}
                   </button>
                 </div>
               )}
             </div>
           ) : (
             <Link href="/auth/login" className="btn-primary">
-              Sign In
+              {t.nav.signIn}
             </Link>
           )}
 
@@ -129,106 +131,121 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Professional Compact Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-white shadow-lg">
-          <div className="container-12 py-2 space-y-1">
+      {/* Professional Full-Screen Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
+          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        }`}
+      >
+        <div className="flex flex-col h-full pt-24 pb-8 px-6">
+          <div className="flex-1 space-y-6">
             <Link
               href="/features"
-              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
+              className="block text-2xl font-bold text-slate-900 hover:text-brand"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.features}
             </Link>
             <Link
               href="/about"
-              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
+              className="block text-2xl font-bold text-slate-900 hover:text-brand"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.about}
             </Link>
             <Link
               href="/pricing"
-              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
+              className="block text-2xl font-bold text-slate-900 hover:text-brand"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.pricing}
             </Link>
             <Link
               href="/blog"
-              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
+              className="block text-2xl font-bold text-slate-900 hover:text-brand"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.blog}
             </Link>
             <Link
               href="/contact"
-              className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
+              className="block text-2xl font-bold text-slate-900 hover:text-brand"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.contact}
             </Link>
+          </div>
 
-            <div className="pt-2 pb-1 border-t mt-2">
-                <div className="px-3 py-1.5">
-                <LanguageSwitcher />
-              </div>
+          <div className="space-y-6 border-t border-slate-100 pt-8">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-slate-500">{t.nav.language}</span>
+              <LanguageSwitcher />
             </div>
 
             {session ? (
-              <>
-                <div className="px-3 py-1.5 border-t mt-2">
-                  <p className="text-xs text-slate-500">Signed in as</p>
-                  <p className="text-sm font-medium">{session.user.name}</p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">
+                    {session.user.name?.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">{session.user.name}</p>
+                    <p className="text-sm text-slate-500">{session.user.email}</p>
+                  </div>
                 </div>
-                {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
-                  <Link
-                    href="/blog/create"
-                    className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Write Post
-                  </Link>
-                )}
-                {session.user.role === 'ADMIN' && (
-                  <Link
-                    href="/admin/blog"
-                    className="block px-3 py-1.5 text-xs hover:bg-slate-50 rounded-md"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Admin
-                  </Link>
-                )}
+
+                <div className="grid grid-cols-2 gap-3">
+                  {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
+                    <Link
+                      href="/blog/create"
+                      className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {t.nav.writePost}
+                    </Link>
+                  )}
+                  {session.user.role === 'ADMIN' && (
+                    <Link
+                      href="/admin/blog"
+                      className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {t.nav.admin}
+                    </Link>
+                  )}
+                </div>
+
                 <button
                   onClick={() => {
                     signOut({ callbackUrl: '/' });
                     setMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-1.5 text-xs text-red-600 hover:bg-red-50 rounded-md"
+                  className="w-full rounded-xl border border-red-200 bg-red-50 py-3 text-sm font-semibold text-red-600"
                 >
-                  Sign Out
+                  {t.nav.signOut}
                 </button>
-              </>
+              </div>
             ) : (
-              <Link
-                href="/auth/login"
-                className="block mx-3 my-2 px-3 py-1.5 text-xs bg-brand text-white rounded-md text-center"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Sign In
-              </Link>
+              <div className="grid grid-cols-2 gap-4">
+                <Link
+                  href="/auth/login"
+                  className="flex items-center justify-center rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-900"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t.nav.signIn}
+                </Link>
+                <Link
+                  href="/demo"
+                  className="flex items-center justify-center rounded-xl bg-brand py-3 text-base font-semibold text-white shadow-lg shadow-brand/20"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t.nav.demo}
+                </Link>
+              </div>
             )}
-
-            <Link
-              href="/demo"
-              className="block mx-3 my-2 px-3 py-1.5 text-xs bg-brand text-white rounded-md text-center font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.demo}
-            </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
