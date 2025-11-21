@@ -29,10 +29,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/maintafox.ico', sizes: 'any' },
       { url: '/logo.svg', type: 'image/svg+xml' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/maintafox.ico',
     apple: '/logo.svg',
   },
   openGraph: {

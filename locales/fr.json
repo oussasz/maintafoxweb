@@ -426,49 +426,8 @@
       "offlineNote": "Le mode hors ligne garantit que les techniciens peuvent exécuter les bons de travail, capturer des données et synchroniser une fois la connectivité rétablie.",
       "roles": {
         "title": "Expériences GMAO basées sur les rôles",
-        "items": [
-          {
-            "role": "Responsable Maintenance",
-            "value": "Planifier les ressources, approuver le travail et analyser les KPI depuis un centre de commande unique."
-          },
-          {
-            "role": "Ingénieur Fiabilité",
-            "value": "Explorer les causes profondes, les modes de défaillance et le coût du cycle de vie pour piloter la stratégie."
-          },
-          {
-            "role": "Technicien",
-            "value": "Recevoir le travail prioritaire, compléter les procédures guidées et capturer les données d'achèvement en quelques secondes."
-          },
-          {
-            "role": "Magasin & Approvisionnement",
-            "value": "Contrôler les niveaux de stock, gérer les fournisseurs et suivre l'utilisation des pièces directement depuis la GMAO."
-          }
-        ]
+        "description": "Tous les rôles sont entièrement personnalisables, vous permettant de créer plusieurs rôles sur mesure selon les besoins spécifiques du client."
       }
-    },
-    "integrations": {
-      "title": "Intégrations et interopérabilité",
-      "subtitle": "Maintafox se connecte à vos systèmes d'entreprise existants, à votre infrastructure OT et à vos outils de collaboration pour créer une boucle fermée entre la maintenance, les opérations et les finances.",
-      "categories": [
-        {
-          "title": "Systèmes d'Entreprise",
-          "tools": ["SAP", "Odoo", "Microsoft Dynamics 365", "Sage", "ERP Personnalisé"]
-        },
-        {
-          "title": "OT & IoT",
-          "tools": [
-            "SCADA",
-            "OPC UA",
-            "Passerelles Modbus",
-            "Capteurs IoT Industriels",
-            "Bases de données Historian"
-          ]
-        },
-        {
-          "title": "Collaboration",
-          "tools": ["Microsoft Teams", "Slack", "Alertes Email", "Passerelles SMS"]
-        }
-      ]
     },
     "cta": {
       "title": "Découvrez la plateforme Maintafox",
@@ -676,7 +635,7 @@
         "title": "Faits rapides",
         "items": [
           "Basé à Alger avec des équipes de mise en œuvre dans les principales régions industrielles.",
-          "Reconnu par NABTAKAR / Ministère des Startups comme un projet innovant dans l'espace technologique de maintenance.",
+          "Reconnu par le Ministère des Startups comme un projet innovant dans la technologie de maintenance industrielle.",
           "Produit et support bilingues (arabe, français, anglais) pour répondre aux besoins des équipes algériennes."
         ]
       }
@@ -759,19 +718,9 @@
       "subtitle": "Notre équipe de direction allie expertise en maintenance, savoir-faire logiciel et expérience de réussite client pour fournir une plateforme GMAO ancrée dans les besoins de l'industrie algérienne.",
       "items": [
         {
-          "name": "Oussama ZERBIB",
+          "name": "BRAHIMI Oussama",
           "role": "Fondateur & PDG",
           "bio": "Ingénieur fiabilité et entrepreneur passionné par l'innovation industrielle, la transformation numérique et la constitution d'équipes de maintenance résilientes."
-        },
-        {
-          "name": "Samir Bekhti",
-          "role": "Chef de produit",
-          "bio": "Plus de 12 ans de conception de logiciels critiques pour les secteurs de l'énergie et des transports, spécialisé dans l'UX centrée sur l'humain et les flux de travail GMAO."
-        },
-        {
-          "name": "Imène Benali",
-          "role": "Responsable Succès Client",
-          "bio": "Consultante en gestion de maintenance soutenant les clients par la formation, la gestion du changement et l'optimisation axée sur les KPI."
         }
       ]
     },

@@ -53,16 +53,7 @@ export default function AboutPage() {
       name: t.aboutPage.leadership.items[0].name,
       role: t.aboutPage.leadership.items[0].role,
       bio: t.aboutPage.leadership.items[0].bio,
-    },
-    {
-      name: t.aboutPage.leadership.items[1].name,
-      role: t.aboutPage.leadership.items[1].role,
-      bio: t.aboutPage.leadership.items[1].bio,
-    },
-    {
-      name: t.aboutPage.leadership.items[2].name,
-      role: t.aboutPage.leadership.items[2].role,
-      bio: t.aboutPage.leadership.items[2].bio,
+      link: '/founder-cv',
     },
   ];
 
@@ -160,13 +151,18 @@ export default function AboutPage() {
           <div className="container-12">
             <h2 className="text-3xl font-semibold text-brand">{t.aboutPage.leadership.title}</h2>
             <p className="mt-3 max-w-2xl text-slate-600">{t.aboutPage.leadership.subtitle}</p>
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            <div className="mt-8 flex justify-center">
               {leadership.map((leader) => (
                 <div
                   key={leader.name}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm max-w-md w-full"
                 >
-                  <div className="text-sm font-semibold text-brand">{leader.name}</div>
+                  <Link
+                    href={leader.link}
+                    className="text-sm font-semibold text-brand hover:underline"
+                  >
+                    {leader.name}
+                  </Link>
                   <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
                     {leader.role}
                   </div>

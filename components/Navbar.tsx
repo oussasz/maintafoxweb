@@ -132,144 +132,143 @@ export default function Navbar() {
       </nav>
 
       {/* Professional Full-Screen Mobile Menu */}
-      <div
-        className={`fixed inset-0 transition-all duration-300 md:hidden ${
-          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-        }`}
-        style={{
-          zIndex: 9999,
-          backgroundColor: '#0b1e35',
-        }}
-      >
-        <div className="flex flex-col h-full p-6 bg-white" style={{ backgroundColor: '#ffffff' }}>
-          <div className="flex items-center justify-between mb-8">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 z-10 relative"
-            >
-              <Image src={logo} alt="Maintafox" width={24} height={24} className="rounded-sm" />
-              <span className="text-lg font-semibold" style={{ color: '#0b1e35' }}>
-                Maintafox
-              </span>
-            </Link>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-full hover:bg-slate-100 transition-colors z-10 relative"
-              aria-label="Close menu"
-            >
-              <X className="w-6 h-6" style={{ color: '#0b1e35' }} />
-            </button>
-          </div>
-
-          <div className="flex-1 space-y-6 overflow-y-auto">
-            <Link
-              href="/features"
-              className="block text-2xl font-bold text-slate-900 hover:text-brand"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.features}
-            </Link>
-            <Link
-              href="/about"
-              className="block text-2xl font-bold text-slate-900 hover:text-brand"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.about}
-            </Link>
-            <Link
-              href="/pricing"
-              className="block text-2xl font-bold text-slate-900 hover:text-brand"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.pricing}
-            </Link>
-            <Link
-              href="/blog"
-              className="block text-2xl font-bold text-slate-900 hover:text-brand"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.blog}
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-2xl font-bold text-slate-900 hover:text-brand"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t.nav.contact}
-            </Link>
-          </div>
-
-          <div className="space-y-6 border-t border-slate-100 pt-8">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-slate-500">{t.nav.language}</span>
-              <LanguageSwitcher />
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 md:hidden"
+          style={{
+            zIndex: 9999,
+            backgroundColor: '#ffffff',
+            opacity: 1,
+          }}
+        >
+          <div className="flex flex-col h-full p-6" style={{ backgroundColor: '#ffffff' }}>
+            <div className="flex items-center justify-between mb-8">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-2"
+              >
+                <Image src={logo} alt="Maintafox" width={24} height={24} className="rounded-sm" />
+                <span className="text-lg font-semibold text-brand">Maintafox</span>
+              </Link>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6 text-slate-500" />
+              </button>
             </div>
 
-            {session ? (
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">
-                    {session.user.name?.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">{session.user.name}</p>
-                    <p className="text-sm text-slate-500">{session.user.email}</p>
-                  </div>
-                </div>
+            <div className="flex-1 space-y-6 overflow-y-auto">
+              <Link
+                href="/features"
+                className="block text-2xl font-bold text-slate-900 hover:text-brand"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.features}
+              </Link>
+              <Link
+                href="/about"
+                className="block text-2xl font-bold text-slate-900 hover:text-brand"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.about}
+              </Link>
+              <Link
+                href="/pricing"
+                className="block text-2xl font-bold text-slate-900 hover:text-brand"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.pricing}
+              </Link>
+              <Link
+                href="/blog"
+                className="block text-2xl font-bold text-slate-900 hover:text-brand"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.blog}
+              </Link>
+              <Link
+                href="/contact"
+                className="block text-2xl font-bold text-slate-900 hover:text-brand"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.contact}
+              </Link>
+            </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
-                    <Link
-                      href="/blog/create"
-                      className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {t.nav.writePost}
-                    </Link>
-                  )}
-                  {session.user.role === 'ADMIN' && (
-                    <Link
-                      href="/admin/blog"
-                      className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {t.nav.admin}
-                    </Link>
-                  )}
-                </div>
+            <div className="space-y-6 border-t border-slate-100 pt-8">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-slate-500">{t.nav.language}</span>
+                <LanguageSwitcher />
+              </div>
 
-                <button
-                  onClick={() => {
-                    signOut({ callbackUrl: '/' });
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full rounded-xl border border-red-200 bg-red-50 py-3 text-sm font-semibold text-red-600"
-                >
-                  {t.nav.signOut}
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-4">
-                <Link
-                  href="/auth/login"
-                  className="flex items-center justify-center rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-900"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {t.nav.signIn}
-                </Link>
-                <Link
-                  href="/demo"
-                  className="flex items-center justify-center rounded-xl bg-brand py-3 text-base font-semibold text-white shadow-lg shadow-brand/20"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {t.nav.demo}
-                </Link>
-              </div>
-            )}
+              {session ? (
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">
+                      {session.user.name?.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900">{session.user.name}</p>
+                      <p className="text-sm text-slate-500">{session.user.email}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    {(session.user.role === 'AUTHOR' || session.user.role === 'ADMIN') && (
+                      <Link
+                        href="/blog/create"
+                        className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {t.nav.writePost}
+                      </Link>
+                    )}
+                    {session.user.role === 'ADMIN' && (
+                      <Link
+                        href="/admin/blog"
+                        className="flex items-center justify-center rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-900"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {t.nav.admin}
+                      </Link>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      signOut({ callbackUrl: '/' });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full rounded-xl border border-red-200 bg-red-50 py-3 text-sm font-semibold text-red-600"
+                  >
+                    {t.nav.signOut}
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <Link
+                    href="/auth/login"
+                    className="flex items-center justify-center rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-900"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {t.nav.signIn}
+                  </Link>
+                  <Link
+                    href="/demo"
+                    className="flex items-center justify-center rounded-xl bg-brand py-3 text-base font-semibold text-white shadow-lg shadow-brand/20"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {t.nav.demo}
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

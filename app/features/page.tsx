@@ -11,10 +11,7 @@ import {
   Boxes,
   BarChart3,
   ShieldCheck,
-  Workflow,
   Bot,
-  SatelliteDish,
-  MessagesSquare,
   Smartphone,
 } from 'lucide-react';
 
@@ -55,24 +52,6 @@ export default function FeaturesPage() {
   ];
 
   const reliabilityFeatures = t.featuresPage.reliability.features;
-
-  const integrations = [
-    {
-      category: t.featuresPage.integrations.categories[0].title,
-      tools: t.featuresPage.integrations.categories[0].tools,
-      Icon: Workflow,
-    },
-    {
-      category: t.featuresPage.integrations.categories[1].title,
-      tools: t.featuresPage.integrations.categories[1].tools,
-      Icon: SatelliteDish,
-    },
-    {
-      category: t.featuresPage.integrations.categories[2].title,
-      tools: t.featuresPage.integrations.categories[2].tools,
-      Icon: MessagesSquare,
-    },
-  ];
 
   const mobilityHighlights = t.featuresPage.mobility.highlights;
 
@@ -198,48 +177,7 @@ export default function FeaturesPage() {
               <h3 className="text-lg font-semibold text-brand">
                 {t.featuresPage.mobility.roles.title}
               </h3>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {t.featuresPage.mobility.roles.items.map((item) => (
-                  <div
-                    key={item.role}
-                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-                  >
-                    <h4 className="text-sm font-semibold text-brand">{item.role}</h4>
-                    <p className="mt-2 text-xs text-slate-600">{item.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </MotionSection>
-
-        <MotionSection className="section section-muted">
-          <div className="container-12">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl font-semibold text-brand">
-                {t.featuresPage.integrations.title}
-              </h2>
-              <p className="mt-3 text-slate-600">{t.featuresPage.integrations.subtitle}</p>
-            </div>
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              {integrations.map(({ category, tools, Icon }) => (
-                <div
-                  key={category}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent/10 text-accent">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <h3 className="text-sm font-semibold text-brand">{category}</h3>
-                  </div>
-                  <ul className="mt-4 space-y-2 text-xs uppercase tracking-[0.2em] text-slate-500">
-                    {tools.map((tool) => (
-                      <li key={tool}>{tool}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <p className="mt-4 text-slate-600">{t.featuresPage.mobility.roles.description}</p>
             </div>
           </div>
         </MotionSection>

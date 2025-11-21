@@ -426,49 +426,8 @@
       "offlineNote": "Offline mode ensures technicians can execute work orders, capture data, and sync once connectivity is restored.",
       "roles": {
         "title": "Role-based CMMS experiences",
-        "items": [
-          {
-            "role": "Maintenance Manager",
-            "value": "Plan resources, approve work, and analyze KPIs from a single command center."
-          },
-          {
-            "role": "Reliability Engineer",
-            "value": "Drill into root causes, failure modes, and lifecycle cost to drive strategy."
-          },
-          {
-            "role": "Technician",
-            "value": "Receive prioritized work, complete guided procedures, and capture completion data in seconds."
-          },
-          {
-            "role": "Stores & Procurement",
-            "value": "Control stock levels, manage suppliers, and track part usage directly from the CMMS."
-          }
-        ]
+        "description": "All roles are fully customizable, allowing you to create multiple tailored roles based on your specific client requirements."
       }
-    },
-    "integrations": {
-      "title": "Integrations and interoperability",
-      "subtitle": "Maintafox connects with your existing business systems, OT infrastructure, and collaboration tools to create a closed loop between maintenance, operations, and finance.",
-      "categories": [
-        {
-          "title": "Business Systems",
-          "tools": ["SAP", "Odoo", "Microsoft Dynamics 365", "Sage", "Custom ERP"]
-        },
-        {
-          "title": "OT & IoT",
-          "tools": [
-            "SCADA",
-            "OPC UA",
-            "Modbus Gateways",
-            "Industrial IoT sensors",
-            "Historian databases"
-          ]
-        },
-        {
-          "title": "Collaboration",
-          "tools": ["Microsoft Teams", "Slack", "Email alerts", "SMS gateways"]
-        }
-      ]
     },
     "cta": {
       "title": "Experience the Maintafox platform",
@@ -676,7 +635,7 @@
         "title": "Fast facts",
         "items": [
           "Headquartered in Algiers with implementation teams across key industrial regions.",
-          "Recognized by NABTAKAR / Ministry of Startups as an Innovative Project in the maintenance technology space.",
+          "Recognized by Ministry of Startups as an Innovative Project in industrial maintenance technology.",
           "Bilingual product and support (Arabic, French, English) to match the needs of Algerian teams."
         ]
       }
@@ -759,19 +718,9 @@
       "subtitle": "Our leadership team blends maintenance expertise, software craftsmanship, and customer success experience to deliver a CMMS platform rooted in Algerian industry needs.",
       "items": [
         {
-          "name": "Oussama ZERBIB",
+          "name": "BRAHIMI Oussama",
           "role": "Founder & CEO",
           "bio": "Reliability engineer and entrepreneur with a passion for industrial innovation, digital transformation, and building resilient maintenance teams."
-        },
-        {
-          "name": "Samir Bekhti",
-          "role": "Head of Product",
-          "bio": "Over 12 years designing mission-critical software for energy and transport sectors, specializing in human-centered UX and CMMS workflows."
-        },
-        {
-          "name": "Imène Benali",
-          "role": "Customer Success Lead",
-          "bio": "Maintenance management consultant supporting clients through training, change management, and KPI-driven optimization."
         }
       ]
     },
